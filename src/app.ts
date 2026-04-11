@@ -1,10 +1,12 @@
 import express from "express";
 import cors from "cors";
-import helmet from "helmet";
+import helmetModule from "helmet";
 import morgan from "morgan";
 import { env } from "./config/env.js";
 import { apiRouter } from "./routes/index.js";
 import { errorHandler } from "./middleware/error-handler.js";
+
+const helmet = helmetModule as unknown as () => express.RequestHandler;
 
 export function createApp() {
   const app = express();

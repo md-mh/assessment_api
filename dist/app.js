@@ -1,10 +1,11 @@
 import express from "express";
 import cors from "cors";
-import helmet from "helmet";
+import helmetModule from "helmet";
 import morgan from "morgan";
 import { env } from "./config/env.js";
 import { apiRouter } from "./routes/index.js";
 import { errorHandler } from "./middleware/error-handler.js";
+const helmet = helmetModule;
 export function createApp() {
     const app = express();
     /** Avoid conditional GET / 304 with stale `If-None-Match` on user-specific JSON (same URL, different role). */
