@@ -33,6 +33,10 @@ export function createApp() {
     res.json({ status: "ok" });
   });
 
+  app.get("/api/health", (_req, res) => {
+    res.json({ status: "ok" });
+  });
+
   app.use("/api", apiRouter);
 
   app.use(errorHandler);

@@ -6,6 +6,10 @@ import "./db/index.js";
 
 const app = createApp();
 
-app.listen(env.PORT, () => {
-  console.log(`API listening on http://localhost:${env.PORT}`);
-});
+if (process.env.VERCEL !== "1") {
+  app.listen(env.PORT, () => {
+    console.log(`API listening on http://localhost:${env.PORT}`);
+  });
+}
+
+export default app;
